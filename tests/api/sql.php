@@ -12,6 +12,7 @@ $dotenv->load();
 $database = new Medoo([
     'database_type' => $_ENV['DB_CONNECTION'],
     'server' => $_ENV['DB_HOST'],
+    'port'=> $_ENV['DB_PORT'],
     'database_name' => $_ENV['DB_DATABASE'],
     'username' => $_ENV['DB_USERNAME'],
     'password' => $_ENV['DB_PASSWORD'],
