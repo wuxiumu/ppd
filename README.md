@@ -1,6 +1,6 @@
 # ppd
 
-证明自己 
+证明自己
 
 思路
 ```
@@ -18,7 +18,7 @@ TODO 验证码，图片，文件，邮件，登录，权限，及时通信，发
 ```
 run php -S localhost:8099
 ```
-Autoload 自动载入 
+Autoload 自动载入
 ```
 composer dump-autoload
 ```
@@ -42,7 +42,7 @@ composer.json
     },
     "autoload": {
         "psr-4": {
-            "Controllers\\": "app/Controllers/", 
+            "Controllers\\": "app/Controllers/",
             "Models\\": "app/Models/"
         },
         "files": [
