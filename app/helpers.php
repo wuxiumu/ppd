@@ -2,13 +2,13 @@
 /* ========================================================================
  * 全局函数
  * ======================================================================== */
-// 打印数据 
+// 打印数据
 function ddp($var){ echo "<pre>"; print_r($var); echo "</pre>";}
- 
+
 function ddd($array)
 {
     call_user_func_array('ddp', func_get_args());
-     
+
 }
 
 if (!function_exists('dd')) {
@@ -38,4 +38,3 @@ if (!function_exists('dump')) {
         return $var;
     }
 }
- 

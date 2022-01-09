@@ -17,7 +17,7 @@ class TempController extends BaseControllers
      * 学生列表
      *
      * 测试链接：
-     *  - http://localhost:8099/paginator/lists/1
+     *  - http://localhost:8099/temp/lists
      *
      */
     public function lists()
@@ -33,7 +33,7 @@ class TempController extends BaseControllers
      * 学生
      *
      * 测试链接：
-     *  - http://localhost:8099/paginator/lists/1
+     *  - http://localhost:8099/paginator/view/1
      *
      */
     public function view($id)
@@ -56,7 +56,7 @@ class TempController extends BaseControllers
     public function fileupload()
     {
 
-        $path = PPDFRAME. '/public/tmp/uploader';
+        $path = PPDFRAME . '/public/tmp/uploader';
         $storage = new FileSystem($path);
         $file = new File('foo', $storage);
         // Optionally you can rename the file on upload
@@ -113,13 +113,13 @@ class TempController extends BaseControllers
     public function watermark()
     {
         $new_filename = '6164ffef2bfb0';
-        $path = PPDFRAME. '/public/tmp/uploader';
+        $path = PPDFRAME . '/public/tmp/uploader';
         $data['extension'] = 'jpg';
         $file_name = $path . '/' . $new_filename . '.jpg';
         // dump($file_name);return;
         $img = Image::make($file_name);
         // resize image instance
-        $img->resize('top',320, 240);
+        $img->resize('top', 320, 240);
         // insert a watermark
         $img->insert($path . '/watermark.gif');
         // save image in desired format

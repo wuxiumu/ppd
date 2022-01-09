@@ -5,6 +5,9 @@ require './vendor/autoload.php';
 define('PPDFRAME', __DIR__); // 项目入口
 define('DEBUG', true); // 调试
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 // 调试
 require './app/config/debug.php';
 

@@ -14,11 +14,7 @@ class Demo
      */
     public function index()
     {
-        $arr = [];
-        foreach ($arr as $key => $value) {
-            # code...
-        }
-        echo 'home';
+        echo '<a href="/temp/lists">My Webpage</a>';
     }
 
     /**
@@ -30,6 +26,7 @@ class Demo
      */
     public function page()
     {
+
         echo 'page';
     }
 
@@ -42,6 +39,18 @@ class Demo
      */
     public function view($id)
     {
-        echo $id;
+        switch ($id) {
+            case 99:
+                dump([
+                    'getenv' => getenv(),
+                    '_ENV' => $_ENV,
+                    '_SERVER' => $_SERVER,
+                ]);
+                break;
+
+            default:
+                echo $id;
+                break;
+        }
     }
 }

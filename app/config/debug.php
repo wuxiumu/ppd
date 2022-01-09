@@ -1,6 +1,6 @@
 <?php
 // 开发模式，提供更多的错误信息
-if (DEBUG) {
+if ($_ENV['APP_DEBUG']) {
     $whoops = new \Whoops\Run;
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
     $whoops->register();

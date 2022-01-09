@@ -6,11 +6,11 @@ use Medoo\Medoo;
 class BaseDao extends Medoo {
     function __construct() {
         $options = [
-            'type' => 'mysql',
-            'host' => '127.0.0.1',
-            'database' => 'sql50',
-            'username' => 'root',
-            'password' => '123456'
+            'type' => $_ENV['DB_CONNECTION'],
+            'host' => $_ENV['DB_HOST'],
+            'database' => $_ENV['DB_DATABASE'],
+            'username' => $_ENV['DB_USERNAME'],
+            'password' => $_ENV['DB_PASSWORD'],
         ];
         parent::__construct( $options );
     }
