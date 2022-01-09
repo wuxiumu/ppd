@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>富文本编辑器</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/public/tmp/layuimini/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="/public/tmp/layuimini/css/public.css" media="all">
+</head>
+
+<body>
+    <div class="layuimini-container">
+        <div class="layuimini-main">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题"
+                            class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">描述</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">验证日期</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd HH:mm:ss"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">分类</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="like[write]" title="写作">
+                        <input type="checkbox" name="like[read]" title="阅读" checked="">
+                        <input type="checkbox" name="like[game]" title="游戏">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">发布/草稿</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="switchTest"
+                            lay-text="ON|OFF">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">内容</label>
+                    <div class="layui-input-block">
+                        <div id="editor"> </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+    <script src="/public/tmp/layuimini/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+    <script src="/public/tmp/layuimini/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+    <script type="text/javascript">
+        layui.use(['form', 'layer', 'laydate', 'wangEditor'], function () {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
+            //日期
+            laydate.render({
+                elem: '#date'
+                ,type: 'datetime'
+            });
+
+            var $ = layui.jquery,
+                layer = layui.layer,
+                wangEditor = layui.wangEditor;
+
+            var editor = new wangEditor('#editor');
+            editor.customConfig.uploadImgServer = "../api/upload.json";
+            editor.customConfig.uploadFileName = 'image';
+            editor.customConfig.pasteFilterStyle = false;
+            editor.customConfig.uploadImgMaxLength = 5;
+            editor.customConfig.uploadImgHooks = {
+                // 上传超时
+                timeout: function (xhr, editor) {
+                    layer.msg('上传超时！')
+                },
+                // 如果服务器端返回的不是 {errno:0, data: [...]} 这种格式，可使用该配置
+                customInsert: function (insertImg, result, editor) {
+                    console.log(result);
+                    if (result.code == 1) {
+                        var url = result.data.url;
+                        url.forEach(function (e) {
+                            insertImg(e);
+                        })
+                    } else {
+                        layer.msg(result.msg);
+                    }
+                }
+            };
+            editor.customConfig.customAlert = function (info) {
+                layer.msg(info);
+            };
+            editor.create();
+
+        });
+    </script>
+</body>
+
+</html>

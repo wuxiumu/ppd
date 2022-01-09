@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layuimini-iframe版 v2 - 基于Layui的后台管理系统前端模板</title>
+    <meta name="keywords" content="layuimini,layui,layui模板,layui后台,后台模板,admin,admin模板,layui mini">
+    <meta name="description" content="layuimini基于layui的轻量级前端后台管理框架，最简洁、易用的后台框架模板，面向所有层次的前后端程序,只需提供一个接口就直接初始化整个框架，无需复杂操作。">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="/public/tmp/layuimini/images/favicon.ico">
+    <link rel="stylesheet" href="/public/tmp/layuimini/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="/public/tmp/layuimini/css/layuimini.css?v=2.0.4.2" media="all">
+    <link rel="stylesheet" href="/public/tmp/layuimini/css/themes/default.css" media="all">
+    <link rel="stylesheet" href="/public/tmp/layuimini/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <!--[if lt IE 9]>
+    <script src="/public/tmp/layuimini/https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="/public/tmp/layuimini/https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style id="layuimini-bg-color">
+    </style>
+</head>
+<body class="layui-layout-body layuimini-all">
+    <div class="layuimini-container">
+        <div class="layui-col-md">
+            <div class="layui-card">
+                <div class="layui-card-header"><i class="fa fa-credit-card icon icon-blue"></i>快捷入口</div>
+                <div class="layui-card-body">
+                    <div class="welcome-module">
+                        <div class="layui-row layui-col-space10 layuimini-qiuck">
+                            <div class="layui-col-xs3 layuimini-qiuck-module">
+                                <a href="/demo/blog" layuimini-content-href="" data-title="博客" data-icon="fa fa-window-maximize">
+                                    <i class="fa fa-window-maximize"></i>
+                                    <cite>博客</cite>
+                                </a>
+                            </div>
+                            <div class="layui-col-xs3 layuimini-qiuck-module">
+                                <a href="/demo/sql" layuimini-content-href="" data-title="sql练习" data-icon="fa fa-gears">
+                                    <i class="fa fa-gears"></i>
+                                    <cite>sql练习</cite>
+                                </a>
+                            </div>
+                            <div class="layui-col-xs3 layuimini-qiuck-module">
+                                <a href="javascript:;" layuimini-content-href="page/table.html" data-title="表格示例" data-icon="fa fa-file-text">
+                                    <i class="fa fa-file-text"></i>
+                                    <cite>表格示例</cite>
+                                </a>
+                            </div>
+                            <div class="layui-col-xs3 layuimini-qiuck-module">
+                                <a href="javascript:;" layuimini-content-href="page/icon.html" data-title="图标列表" data-icon="fa fa-dot-circle-o">
+                                    <i class="fa fa-dot-circle-o"></i>
+                                    <cite>图标列表</cite>
+                                </a>
+                            </div>
+                            <div class="layui-col-xs3 layuimini-qiuck-module">
+                                <a href="javascript:;" layuimini-content-href="page/form.html" data-title="表单示例" data-icon="fa fa-calendar">
+                                    <i class="fa fa-calendar"></i>
+                                    <cite>表单示例</cite>
+                                </a>
+                            </div>
+                            <div class="layui-col-xs3 layuimini-qiuck-module">
+                                <a href="javascript:;" layuimini-content-href="page/404.html" data-title="404页面" data-icon="fa fa-hourglass-end">
+                                    <i class="fa fa-hourglass-end"></i>
+                                    <cite>404页面</cite>
+                                </a>
+                            </div>
+                            <div class="layui-col-xs3 layuimini-qiuck-module">
+                                <a href="javascript:;" layuimini-content-href="page/button.html" data-title="按钮示例" data-icon="fa fa-snowflake-o">
+                                    <i class="fa fa-snowflake-o"></i>
+                                    <cite>按钮示例</cite>
+                                </a>
+                            </div>
+                            <div class="layui-col-xs3 layuimini-qiuck-module">
+                                <a href="javascript:;" layuimini-content-href="https://www.baidu.com" data-title="百度搜索" data-icon="fa fa-search">
+                                    <i class="fa fa-search"></i>
+                                    <cite>百度搜索</cite>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script src="/public/tmp/layuimini/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+<script src="/public/tmp/layuimini/js/lay-config.js?v=2.0.0" charset="utf-8"></script>
+<script>
+    layui.use(['jquery', 'layer','miniTab', 'miniAdmin'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            miniAdmin = layui.miniAdmin,
+            miniTab = layui.miniTab;
+
+        
+    });
+</script>
+</body>
+</html>
