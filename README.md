@@ -52,3 +52,20 @@ composer.json
 }
 
 ```
+
+
+常用命令
+```
+php bin/cli.php clearcache
+```
+
+启动服务
+```
+php -S localhost;8000
+
+```
+指定根目录
+```
+php -S localhost:8000 -t   foo/
+```
+

@@ -8,3 +8,4 @@
 /public/tmp
 # composer 文件
 /vendor
+/bin

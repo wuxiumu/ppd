@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <ul id="navigation">
+        {% for item in navigation %}
+        <li>姓名 <a href="/temp/edit/{{ item.sno }}">{{ item.sname }}</a></li>
+        <li>编号 {{ item.sno }}</li>
+        <li>性别 {{ item.ssex }}</li>
+        <li>生日 {{ item.sbirthday }}</li>
+        <li>班级 {{ item.class }}</li>
+        <a href="/temp/del/{{ item.sno }}"> DEl </a>
+        {% endfor %}
+    </ul>
+
+    <h1>My Webpage  View</h1>
+    {{ a_variable }}
+</body>
+
+</html>

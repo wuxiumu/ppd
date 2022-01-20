@@ -22,18 +22,77 @@ class TempController extends BaseControllers
      */
     public function lists()
     {
-
         $model = new TempDao();
-        $navigation = $model->select('students', '*', []);
+        $navigation = $model->select('students', '*', []); //dump($navigation);return;
         $this->assign('navigation', $navigation);
         $this->display('temp/lists');
     }
-
     /**
-     * 学生
+     * 学生添加页
      *
      * 测试链接：
-     *  - http://localhost:8099/paginator/view/1
+     *  - http://localhost:8099/temp/add
+     *
+     */
+    public function add()
+    {
+        $item = [
+            "sno" => '108',
+            "sname" => '曾华',
+            "ssex" => '男',
+            "sbirthday" =>  '1977-09-01 00:00:00',
+            "class" => '95033',
+        ];
+        $this->assign('item', $item);
+        $this->display('temp/add');
+    }
+    /**
+     * 学生添加方法
+     *
+     * 测试链接：
+     *  - http://localhost:8099/temp/insert
+     *
+     */
+    public function insert()
+    {
+        $model = new TempDao();
+        $res = $model->insert("students", [
+            "sno" => $_POST['sno'],
+            "sname" => $_POST['sname'],
+            "ssex" => $_POST['ssex'],
+            "sbirthday" => $_POST['sbirthday'],
+            "class" => $_POST['class'],
+        ]);
+        if ($res) {
+            redirect('/temp/lists');
+        } else {
+            echo json_encode($res);
+        }
+    }
+    /**
+     * 学生删除方法
+     *
+     * 测试链接：
+     *  - http://localhost:8099/temp/del/108
+     *
+     */
+    public function del($id)
+    {
+        $model = new TempDao();
+        $res = $model->delete("students", [
+            "sno" => $id,
+        ]);
+        if ($res) {
+            redirect('/temp/lists');
+        } else {
+            echo json_encode($res);
+        }
+    }
+    /**
+     * 学生预览
+     *
+     * 测试链接：
+     *  - http://localhost:8099/temp/view/1
      *
      */
     public function view($id)
@@ -43,9 +102,46 @@ class TempController extends BaseControllers
         $twig = new \Twig\Environment($loader);
         $model = new TempDao();
         $data = $model->select('students', '*', ['sno' => $id]);
-        echo $twig->render('temp/lists.html', ['navigation' => $data]);
+        echo $twig->render('temp/view.html', ['navigation' => $data]);
     }
+    /**
+     * 学生编辑页
+     *
+     * 测试链接：
+     *  - http://localhost:8099/temp/edit/1
+     *
+     */
+    public function edit($id)
+    {
 
+        $loader = new \Twig\Loader\FilesystemLoader('app/views');
+        $twig = new \Twig\Environment($loader);
+        $model = new TempDao();
+        $data = $model->select('students', '*', ['sno' => $id]);
+        echo $twig->render('temp/edit.html', ['navigation' => $data]);
+    }
+    /**
+     * 学生更新方法
+     *
+     * 测试链接：
+     *  - http://localhost:8099/paginator/update/1
+     *
+     */
+    public function update($id)
+    {
+        $model = new TempDao();
+        $res = $model->update("students", [
+            "sname" => $_POST['sname'],
+        ], [
+            "sno" => $_POST['sno'],
+        ]);
+        if ($res) {
+            redirect('/temp/view/' . $id);
+        } else {
+            echo json_encode($res);
+        }
+    }
+    //
     /**
      * 文件上传
      *

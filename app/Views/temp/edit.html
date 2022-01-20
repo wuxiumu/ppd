@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    {% for item in navigation %}
+    <form action="/temp/{{ item.sno }}" method="post">
+        sno：<input type="text" value="{{ item.sno }}" name="sno"><br>
+        sname：<input type="text" value="{{ item.sname }}" name="sname"><br>
+        ssex：<input type="text" value="{{ item.ssex }}" name="ssex"><br>
+        sbirthday：<input type="text" value="{{ item.sbirthday }}" name="sbirthday"><br>
+        class：<input type="text" value="{{ item.class }}" name="class"><br>
+        <input type="submit" title="提交">
+    </form>
+    {% endfor %}
+    <h1>My Webpage  Edit</h1>
+    {{ a_variable }}
+</body>
+
+</html>

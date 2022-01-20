@@ -6,5 +6,5 @@ if ($_ENV['APP_DEBUG']) {
     $whoops->register();
     ini_set('display_error', 'On');
 } else {
-    ini_set('display_error', 'Off');
+    error_reporting(0);
 }
